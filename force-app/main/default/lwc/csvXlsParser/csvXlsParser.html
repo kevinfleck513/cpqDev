@@ -1,0 +1,40 @@
+<template>
+    <span><strong>SheetJS version: {version}</strong></span>
+    <br/>
+    <span>quoteId: {recordId}</span>
+    <lightning-card title="Upload File" icon-name="utility:upload">
+        <template if:true={loading}>
+            <lightning-spinner variant="brand" size="medium"> </lightning-spinner>
+        </template>
+        <template if:false={loading}>
+            <div>
+                <div class="slds-align_absolute-center slds-m-around_small">
+                <!-- <lightning-file-upload
+                        label="Upload csv/xls"
+                        name="fileUploader"
+                        accept={acceptedFormats}
+                        record-id={quoteId}
+                        onuploadfinished={handleUploadFinished}>
+                    </lightning-file-upload> -->
+                        <lightning-input
+                        type="file"
+                        accept={acceptedFormats}
+                        multiple="false"
+                        name="fileupload"
+                        onchange={handleUploadFinished}>
+                    </lightning-input>
+                </div>
+                <div class="slds-align_absolute-center slds-m-around_small">
+                    <lightning-formatted-text value="Accepted file types:"></lightning-formatted-text>
+                </div>
+                <div class="slds-align_absolute-center slds-m-around_small">
+                    <lightning-icon icon-name="doctype:csv" alternative-text="csv file" title="Image" size="large"></lightning-icon>
+                    <lightning-icon icon-name="doctype:excel" alternative-text="Excel file" title="Image" size="large"></lightning-icon>
+                </div>
+            </div>
+        </template> 
+        <div slot="footer">
+            <lightning-button label="Cancel" variant="destructive" onclick={closeQuickAction}></lightning-button>
+        </div>
+    </lightning-card>       
+</template>

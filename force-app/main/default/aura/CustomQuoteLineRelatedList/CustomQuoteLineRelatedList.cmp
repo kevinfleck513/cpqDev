@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="CustomQuoteLineRelatedList">
+    <aura:attribute name="QuoteLines" type="SBQQ__QuoteLine__c[]"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   
+    <div class="border slds-scrollable_x">
+        <table class = "slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class = "slds-text-title_caps">
+                    <th scope = "col"><div class = "slds-truncate" title = "Quantity">Quantity</div></th>
+                    <th scope = "col"><div class = "slds-truncate" title = "List Total">List Total</div></th>
+                    <th scope = "col"><div class = "slds-truncate" title = "Net Total">Net Total</div></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items = "{!v.QuoteLines}" var = "ql">
+                    <tr>
+                        <td><div class = "slds-truncate" title = "{!ql.SBQQ__Quantity__c}"><lightning:formattedNumber value="{!ql.SBQQ__Quantity__c}"/></div></td>                     
+                        <td><div class = "slds-truncate" title = "{!ql.SBQQ__ListTotal__c}"><lightning:formattedNumber value="{!ql.SBQQ__ListTotal__c}" style="currency" currencyCode="{!ql.CurrencyIsoCode}" currencyDisplayAs="code"/></div></td>
+                        <td><div class = "slds-truncate" title = "{!ql.SBQQ__NetTotal__c}"><lightning:formattedNumber value="{!ql.SBQQ__NetTotal__c}" style="currency" currencyCode="{!ql.CurrencyIsoCode}" currencyDisplayAs="code"/></div></td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+    
+    
+</aura:component>

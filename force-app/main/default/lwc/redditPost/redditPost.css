@@ -1,0 +1,29 @@
+.thinborder{
+    background-color: darksalmon;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.topborder{
+    border-top: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.heading{
+    font-size: 1rem;
+    text-align: left;
+    /* background-color: darksalmon; */
+}
+
+.body{
+    background-color: blanchedalmond;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}

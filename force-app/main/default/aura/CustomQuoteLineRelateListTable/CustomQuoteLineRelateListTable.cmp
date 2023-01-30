@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="CustomQuoteLineRelatedList">
+<aura:attribute name="quoteLineData" type="SBQQ__QuoteLine__c[]"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    
+    <lightning:card title="Quote Lines">
+        <div class="slds-m-around_small">
+        <lightning:datatable
+                data="{!v.quoteLineData}"
+                columns="{!v.columns}"
+                keyField="id"
+                hideCheckboxColumn="true"/>
+        </div>
+    </lightning:card>
+    
+</aura:component>

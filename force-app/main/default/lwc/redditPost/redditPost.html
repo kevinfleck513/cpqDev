@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-var-m-around_small thinborder">
+        <div class="slds-var-p-around_small">
+            <div class="heading"><strong>{post.title}</strong></div>
+        </div>
+            <!-- </br> -->
+        <div class="topborder body slds-var-p-around_small">
+            <div>
+                <template if:false={isVideo}>
+                    <div><img src={image} onerror={onImgError}></div>
+                </template>                
+                <!-- <div>{isVideo}</div> -->
+                <div>{post.selftext}</div>
+                <div class="right">-<em>{post.author}</em></div>
+                <div slot="footer">
+                    <div>
+                        <lightning-icon icon-name={upOrDownArrow} size="x-small"></lightning-icon>{upsOrDowns}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</template>

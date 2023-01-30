@@ -1,0 +1,35 @@
+<template>
+    strRecordId: {strRecordId}
+    <br/>
+    <template if:true={displayCount}>
+        <lightning-formatted-text value="# of related records found: "></lightning-formatted-text>
+        <lightning-formatted-number value={count}></lightning-formatted-number>
+    </template>
+    <template if:true={displayRecords}>
+        <lightning-datatable
+            key-field="id"
+            columns={columns}
+            data={records}
+            hide-checkbox-column
+            default-sort-direction={defaultSortDirection}
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={handleSort}>
+    </lightning-datatable>
+        <!-- <template for:each={relatedRecords.data.records} for:item="rel">
+            <p key={rel.id}>
+                {rel.fields.Name.value}<br/>
+                {rel.fields.DIMS_Field_Number__c.value}<br/>
+                {rel.fields.Account__c.value}<br/>
+                {rel.fields.Account__r.displayValue}<br/>
+            </p>            
+        </template> -->
+    </template>
+    <template if:false={displayCount}>
+        <lightning-formatted-text value="no record count found."></lightning-formatted-text>
+    </template>
+    <br/>
+    <template if:false={displayRecords}>
+        <lightning-formatted-text value="no records found."></lightning-formatted-text>
+    </template>
+</template>

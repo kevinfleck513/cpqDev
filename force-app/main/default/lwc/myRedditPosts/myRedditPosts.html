@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="&#128293; Hot Reddit posts">        
+        <div class="slds-var-p-horizontal_small slds-align_absolute-center">
+            <lightning-combobox class="slds-align-middle" value={selectedChannel} options={redditChannels} onchange={handleChannelChange}></lightning-combobox>
+        </div>
+        <br/>
+        <div class="slds-var-p-horizontal_small slds-align_absolute-center">
+            {title}
+        </div>       
+        <div class="slds-var-p-around_small" style="height: 500px">
+            <div class="grey">
+                <div class="slds-scrollable_y slds-text-align_center" style="height: 440px">
+                    <template if:false={isLoaded}>
+                        <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+                    </template>
+                    <template if:true={isLoaded}>
+                        <template if:false={error} for:each={redditResults} for:item="child">
+                            <lightning-layout-item key={child.data}>
+                                <c-reddit-post post={child.data}></c-reddit-post>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:true={error}>
+                            error getting data
+                        </template>
+                    </template>
+                </div>                                       
+            </div>
+            <div class="slds-var-p-top_small slds-align_absolute-center">
+                <lightning-button label="Refresh Posts" variant="neutral" onclick={makeCallout}></lightning-button>  
+            </div>  
+        </div>
+    </lightning-card>
+</template>

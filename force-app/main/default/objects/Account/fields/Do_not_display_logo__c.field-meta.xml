@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_not_display_logo__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>CC - do not display a logo for this account in the b2b commerce webstore</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check here to choose not to display a logo for this account in the b2b commerce webstore</inlineHelpText>
+    <label>Do not display logo</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>
